@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package sentinel.v1;
+
+
+// Interface exported by the server.
+service SentinelService {
+    rpc CreateCase(CreateCaseRequest) returns (CreateCaseResponse) {}
+}
+
+message CreateCaseRequest {
+    string enterprise_uid = 1;
+    string user_uid = 2;
+    string member_name = 3;
+    string member_uid = 4;
+    string clinicals_base64 = 5;
+    string criteria_base64 = 6;
+    repeated CaseCode codes = 7;
+}
+
+message CreateCaseResponse {
+     string case_uid = 1;
+}
+
+message CaseCode {
+    string category = 1;
+    string value = 2;
+    string type = 3;
+}
