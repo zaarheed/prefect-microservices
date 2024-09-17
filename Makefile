@@ -13,7 +13,7 @@ run:
 	docker run -d --name service-prefect-server -p 4200:4200 --env-file .env --network posterior-platform service-prefect-server
 	docker run -d --name service-api-js -p 50052:3000 --env-file .env --network posterior-platform service-api-js
 	docker run -d --name workflow-test-sentinel -p 4300:4300 --env-file .env --network posterior-platform workflow-test-sentinel
-	docker run -d --name service-llm-executor -p 50062:3000 --env-file .env --network posterior-platform service-llm-executor
+	docker run -d --name service-llm-executor -p 50053:50053 --env-file .env --network posterior-platform service-llm-executor
 
 # Clean up Docker images and containers
 clean:

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package llm_executor.v1;
+
+
+service LLMExecutorService {
+    rpc CallModel(CallModelRequest) returns (CallModelResponse) {}
+}
+
+message CallModelRequest {
+    string prompt = 1;
+    string model_id = 2;
+}
+
+message CallModelResponse {
+     string status = 1;
+}
