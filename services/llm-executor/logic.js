@@ -6,7 +6,7 @@ const { addTokens, getTokens } = require("./redis");
 
 dotenv.config();
 
-const REDIS_QUEUE_URL = "redis://127.0.0.1:6379";
+const REDIS_QUEUE_URL = process.env.LLM_EXTRACTOR_REDIS_QUEUE_URL;
 
 const openai = new OpenAI({
 	apiKey: process.env.OPENAI_API_KEY

@@ -3,7 +3,7 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-const REDIS_QUEUE_URL = "redis://127.0.0.1:6379";
+const REDIS_QUEUE_URL = process.env.LLM_EXTRACTOR_REDIS_QUEUE_URL;
 const client = redis.createClient({ url: REDIS_QUEUE_URL });
 
 client.on("error", (err) => {
