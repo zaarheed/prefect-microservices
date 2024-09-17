@@ -17,8 +17,9 @@ RUN npm install
 COPY . .
 
 # Expose the port the app runs on
-EXPOSE 50053
-EXPOSE 50054
+EXPOSE 3000
+EXPOSE 3001
+EXPOSE 3002
 
 VOLUME ["/.volume"]
 

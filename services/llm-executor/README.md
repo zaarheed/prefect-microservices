@@ -4,9 +4,11 @@
 
 1. From the root directory run `make build && make run`
 
-2. Open Postman and run a RPC command against the URL `http://0.0.0.0:50053/LLMExecutorService/CallModel` (use the `.proto` from `/services/llm-executor/llm-executor.proto` if needed). The payload can be `{ model_id: 'openai', prompt: 'YOUR_PROMPT_HERE' }`
+2. Open Postman and run a RPC command against the URL `http://0.0.0.0:60001/LLMExecutorService/CallModel` (use the `.proto` from `/services/llm-executor/llm-executor.proto` if needed). The payload can be `{ model_id: 'openai', prompt: 'YOUR_PROMPT_HERE' }`
 
-3. Watch the queue execute at `http://localhost:50054/admin/queues`
+2b. You can also make HTTP requests with the same payload to `http://0.0.0.0:60000/call-model`. The payload can be `{ model_id: 'anthropic', prompt: 'YOUR_PROMPT_HERE' }`
+
+3. Watch the queue execute at `http://localhost:60002/admin/queues`
 
 4. Spam the invoke button on Postman to observe request smoothing
 
