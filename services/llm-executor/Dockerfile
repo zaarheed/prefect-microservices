@@ -20,6 +20,8 @@ COPY . .
 EXPOSE 50053
 EXPOSE 50054
 
+VOLUME ["/.volume"]
+
 # Create a startup script
 RUN echo "#!/bin/bash\nservice redis-server start\nnode index.js" > start.sh && \
     chmod +x start.sh
