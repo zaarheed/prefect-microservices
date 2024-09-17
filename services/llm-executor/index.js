@@ -1,10 +1,9 @@
 var PROTO_PATH = __dirname + "/llm-executor.proto";
 var grpc = require("@grpc/grpc-js");
 var protoLoader = require("@grpc/proto-loader");
-const { runExample } = require("./logic");
+const { run } = require("./logic");
 const { bullBoardApp } = require("./bull-board");
 
-// Load the protobuf
 var packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 	keepCase: true,
 	longs: String,
@@ -17,8 +16,12 @@ var llmExecutorProto = _packageDefinition.llm_executor.v1;
 
 // Implement the service methods
 async function callModel(call, callback) {
-	runExample();
-	callback(null, { status: "QUEUED" });
+	const { request } = call;
+	const { prompt, model_id } = request;
+
+	const response = await run({ prompt, model_id });
+
+	callback(null, response);
 }
 
 

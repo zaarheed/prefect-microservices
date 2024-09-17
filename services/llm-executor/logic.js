@@ -121,9 +121,20 @@ async function queueAnthropicRequest(prompt, maxTokens) {
 }
 
 // Example usage
-module.exports.runExample = async () => {
-	for (let i = 0; i < 3; i++) {
-		await queueOpenAIRequest("Tell me a joke about programming", 50);
-		await queueAnthropicRequest("Tell me a fact about space", 50);
+module.exports.run = async (props) => {
+	const { prompt, model_id } = props;
+
+	if (model_id === "openai") {
+		await queueOpenAIRequest(prompt, 50);
+		return { status: "QUEUED" };
 	}
+
+	if (model_id === "anthropic") {
+		await queueAnthropicRequest(prompt, 50);
+		return { status: "QUEUED" };
+	}
+
+	const errorMessage = `Model ${model_id} not found`;
+	console.warn(errorMessage);
+	return { status: "ERROR", message: errorMessage };
 }
