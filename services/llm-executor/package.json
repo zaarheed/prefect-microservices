@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "@anthropic-ai/sdk": "^0.27.3",
+    "@bull-board/api": "^5.21.7",
+    "@bull-board/express": "^5.21.7",
     "@grpc/grpc-js": "^1.11.2",
     "bull": "^4.16.3",
     "dotenv": "^16.4.5",
